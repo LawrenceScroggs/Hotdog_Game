@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:context="kevin.wiener.game.MainActivity">
+
+    <TextView
+        android:id="@+id/score_board"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/score" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/to_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:contentDescription="@string/start"
+            android:text="@string/start"
+            android:textSize="30sp"
+            android:translationX="120dp" />
+
+        <ImageView
+            android:id="@+id/kevin"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/head"
+            app:srcCompat="@drawable/kevin_open"
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/wiener"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/weiner"
+            android:contentDescription="@string/wiener" />
+
+
+    </FrameLayout>
+
+
+</LinearLayout>
