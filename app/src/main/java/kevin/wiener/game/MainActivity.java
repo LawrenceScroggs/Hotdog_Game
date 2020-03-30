@@ -12,18 +12,24 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.lang.*;
 
 public class MainActivity extends AppCompatActivity {
 
+    // text used within the game
     private TextView score_board;
     private TextView to_start;
+
+    // images used within the game
     private ImageView kevin;
     private ImageView wiener;
+
 
     //Size of frame & kevin
     private int frameHeight;
@@ -34,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     // Speed of Kevin & Wieners
     private int kevin_spd;
     private int wiener_spd;
-
     // Position of Kevin & Wieners
     private int kevin_Y;
     private int kevin_X;
@@ -75,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         score_board = findViewById(R.id.score_board);
         to_start = findViewById(R.id.to_start);
         kevin = findViewById(R.id.kevin);
+        kevin.setX(40);
+        kevin.setY(100);
         wiener = findViewById(R.id.wiener);
 
         // moves off screen
@@ -85,21 +92,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hitCheck() {
-
+        String printKevin = "Kevin Y " + kevin_Y;
+        System.out.println(printKevin);
+        String printWiener = "Wiener Y" + wiener_Y;
+        System.out.println(printWiener);
         // if wiener hits mouth
-        if (kevin_X == wiener_X && kevin_Y == wiener_Y || kevin_Y == (wiener_Y + 2) && kevin_X == (wiener_X + 2)){
-            score_board.setText("Score: "+ score);
-            score += 30;
-            wiener_X = -10;
-            sound.playHitSound();
+        if (wiener_X <= 40){
+/**
+ * Set range of values in which wiener Y can be between
+ * for range of hits
+ */
+            if(wiener_Y == kevin_Y) {
+
+                score_board.setText("Score: " + score);
+                score += 30;
+                wiener_X = -10;
+                sound.playHitSound();
+                printKevin = "HIT: Kevin Y " + kevin_Y;
+                System.out.println(printKevin);
+                printWiener = "HIT: Wiener Y" + wiener_Y;
+                System.out.println(printWiener);
+
+            }
 
         }
     }
 
     public void changePos() {
         hitCheck();
-
-        kevin_X = 40;
+        System.out.println(wiener_X);
+        System.out.println(kevin_Y);
         wiener_X -= wiener_spd;
 
         //wiener movement
