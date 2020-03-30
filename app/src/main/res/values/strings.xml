@@ -4,4 +4,5 @@
     <string name="head">head</string>
     <string name="score">Score : 300</string>
     <string name="start">Tap to Start</string>
+    <string name="over">GAME OVER</string>
 </resources>

@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Position of Kevin & Wieners
     private int kevin_Y;
+    private int kevin_X;
     private int wiener_Y;
     private int wiener_X;
 
@@ -86,16 +87,19 @@ public class MainActivity extends AppCompatActivity {
     public void hitCheck() {
 
         // if wiener hits mouth
-        if (wiener_X == (kevin_Y / 2) || wiener_X == (kevin_Y / 3) || wiener_Y == (kevin_Y/4)) {
+        if (kevin_X == wiener_X && kevin_Y == wiener_Y || kevin_Y == (wiener_Y + 2) && kevin_X == (wiener_X + 2)){
+            score_board.setText("Score: "+ score);
             score += 30;
             wiener_X = -10;
             sound.playHitSound();
+
         }
     }
 
     public void changePos() {
         hitCheck();
 
+        kevin_X = 40;
         wiener_X -= wiener_spd;
 
         //wiener movement
@@ -108,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         //kevin movement
         if (action == true) {
-            kevin_Y -= 15;
+            kevin_Y -= 20;
         }  //no touching
         else {
             kevin_Y += 30;
@@ -122,12 +126,13 @@ public class MainActivity extends AppCompatActivity {
 
             // show results
             Intent intent = new Intent(getApplicationContext(), result.class);
-            intent.putExtra("SCORE: ",score);
+            intent.putExtra("SCORE: ", score);
             startActivity(intent);
         }
         kevin.setY(kevin_Y);
+        kevin.setX(kevin_X);
 
-        score_board.setText("Score: " + score);
+        score_board.setText("Score: " +score);
 
 
     }
@@ -141,7 +146,8 @@ public class MainActivity extends AppCompatActivity {
             FrameLayout frame = findViewById(R.id.frameLayout);
             frameHeight = frame.getHeight();
 
-            kevin_Y = 100;
+            kevin.setY(80);
+            kevin.setX(40);
 
             to_start.setVisibility(View.GONE);
 

@@ -8,10 +8,11 @@
     android:gravity="center">
 
     <TextView
+        android:id="@+id/over"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GAME OVER"
-        android:textSize="30sp"/>
+        android:text="@string/over"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/scoreLabel"

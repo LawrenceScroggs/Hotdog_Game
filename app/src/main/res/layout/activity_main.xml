@@ -40,11 +40,12 @@
 
         <ImageView
             android:id="@+id/kevin"
-            android:layout_width="75dp"
+            android:layout_width="74dp"
             android:layout_height="75dp"
             android:contentDescription="@string/head"
-            app:srcCompat="@drawable/kevin_open"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            app:srcCompat="@drawable/kevin_open" />
+
         <ImageView
             android:id="@+id/wiener"
             android:layout_width="100dp"
