@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     // SCOREBOARD
     private int score;
+    private int high_score;
 
     // Initialize Class
     private Handler handler = new Handler();
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         wiener.setX(-80);
         wiener.setY(-80);
 
-        score_board.setText("Score: 0");
+        score_board.setText("Score: " + score);
     }
 
     public void hitCheck() {
@@ -97,12 +98,12 @@ public class MainActivity extends AppCompatActivity {
         String printWiener = "Wiener Y" + wiener_Y;
         System.out.println(printWiener);
         // if wiener hits mouth
-        if (wiener_X <= 40){
+        if (wiener_X =t = 60){
 /**
- * Set range of values in which wiener Y can be between
+ * Set range of values in which wiener Y can be between +/- kevin_Y
  * for range of hits
  */
-            if(wiener_Y == kevin_Y) {
+            if(wiener_Y >= kevin_Y - 200 && wiener_Y <= kevin_Y + 200) {
 
                 score_board.setText("Score: " + score);
                 score += 30;
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 sound.playHitSound();
                 printKevin = "HIT: Kevin Y " + kevin_Y;
                 System.out.println(printKevin);
-                printWiener = "HIT: Wiener Y" + wiener_Y;
+                printWiener = "HIT: Wiener Y " + wiener_Y;
                 System.out.println(printWiener);
 
             }
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         //wiener movement
         if (wiener_X < 0) {
-            wiener_X = screen_width+20;
+            wiener_X = screen_width+30;
             wiener_Y = (int) Math.floor(Math.random() * (frameHeight - wiener.getHeight()));
         }
         wiener.setX(wiener_X);
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
             // show results
             Intent intent = new Intent(getApplicationContext(), result.class);
-            intent.putExtra("SCORE: ", score);
+            intent.putExtra("Score: ", score);
             startActivity(intent);
         }
         kevin.setY(kevin_Y);
