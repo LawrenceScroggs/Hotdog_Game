@@ -89,25 +89,26 @@ public class MainActivity extends AppCompatActivity {
         wiener.setX(-80);
         wiener.setY(-80);
 
-        score_board.setText("Score: " + score);
+        //score_board.setText("Score: " + score);
+        score_board.setText(getString(R.string.score, score));
     }
-
     public void hitCheck() {
         String printKevin = "Kevin Y " + kevin_Y;
         System.out.println(printKevin);
-        String printWiener = "Wiener Y" + wiener_Y;
+        System.out.println();
+        String printWiener = "Wiener Y " + wiener_Y;
+        System.out.println();
         System.out.println(printWiener);
         // if wiener hits mouth
-        if (wiener_X =t = 60){
+        if (wiener_X >= 20 && wiener_X <= 70){
 /**
  * Set range of values in which wiener Y can be between +/- kevin_Y
  * for range of hits
  */
             if(wiener_Y >= kevin_Y - 200 && wiener_Y <= kevin_Y + 200) {
 
-                score_board.setText("Score: " + score);
                 score += 30;
-                wiener_X = -10;
+                wiener_X = -100;
                 sound.playHitSound();
                 printKevin = "HIT: Kevin Y " + kevin_Y;
                 System.out.println(printKevin);
