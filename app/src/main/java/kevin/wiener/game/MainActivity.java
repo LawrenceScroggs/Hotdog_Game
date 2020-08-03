@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Size of frame & kevin
     private int frameHeight;
-    private int kevin_size;
+    //private int kevin_size;
     private int screen_width;
     private int screen_height;
 
