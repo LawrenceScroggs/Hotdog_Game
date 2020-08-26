@@ -4,7 +4,10 @@
     <string name="head">head</string>
     <string name="score">Score : %d</string>
     <string name="wiener_point">30 Points</string>
+    <string name="result_score">%d</string>
+    <string name="high_score">High Score: %d</string>
     <string name="final_score">%d</string>
     <string name="start">Tap to Start</string>
     <string name="over">GAME OVER</string>
+    <string name="try_again">Try Again</string>
 </resources>

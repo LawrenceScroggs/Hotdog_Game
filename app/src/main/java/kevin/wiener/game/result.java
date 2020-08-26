@@ -19,8 +19,8 @@ public class result extends AppCompatActivity{
         TextView scoreLabel = findViewById(R.id.scoreLabel);
         TextView highScoreLabel = findViewById(R.id.highScoreLabel);
 
-        int score = getIntent().getIntExtra("score", 0);
-        scoreLabel.setText(getString(R.string.score, score));
+        int score = getIntent().getIntExtra("SCORE", 0);
+        scoreLabel.setText(getString(R.string.result_score, score));
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("HIGH_SCORE", 0);
@@ -42,7 +42,7 @@ public class result extends AppCompatActivity{
 
 
     public void tryAgain(View view) {
-        startActivity(new Intent(getApplicationContext(), start.class));
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
     
 

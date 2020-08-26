@@ -48,9 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     // SCOREBOARD
     private int score;
-    private int high_score;
 
-    // Initialize Class
+    // Initialize handler/timer/soundplayer
     private Handler handler = new Handler();
     private Timer timer = new Timer();
     private SoundPlayer sound;
@@ -92,38 +91,11 @@ public class MainActivity extends AppCompatActivity {
         //score_board.setText("Score: " + score);
         score_board.setText(getString(R.string.score, score));
     }
-    public void hitCheck() {
-        String printKevin = "Kevin Y " + kevin_Y;
-        System.out.println(printKevin);
-        System.out.println();
-        String printWiener = "Wiener Y " + wiener_Y;
-        System.out.println();
-        System.out.println(printWiener);
-        // if wiener hits mouth
-        if (wiener_X >= 20 && wiener_X <= 70){
-/**
- * Set range of values in which wiener Y can be between +/- kevin_Y
- * for range of hits
- */
-            if(wiener_Y >= kevin_Y - 200 && wiener_Y <= kevin_Y + 200) {
-
-                score += 30;
-                wiener_X = -100;
-                sound.playHitSound();
-                printKevin = "HIT: Kevin Y " + kevin_Y;
-                System.out.println(printKevin);
-                printWiener = "HIT: Wiener Y " + wiener_Y;
-                System.out.println(printWiener);
-
-            }
-
-        }
-    }
 
     public void changePos() {
+
         hitCheck();
-        System.out.println(wiener_X);
-        System.out.println(kevin_Y);
+
         wiener_X -= wiener_spd;
 
         //wiener movement
@@ -142,26 +114,59 @@ public class MainActivity extends AppCompatActivity {
             kevin_Y += 30;
         } //touch
 
-        if (kevin_Y < 0 || kevin_Y > frameHeight) {
-            kevin_Y = 0;
-
-            timer.cancel();
-            timer = null;
-
-            // show results
-            Intent intent = new Intent(getApplicationContext(), result.class);
-            intent.putExtra("Score: ", score);
-            startActivity(intent);
-        }
         kevin.setY(kevin_Y);
         kevin.setX(kevin_X);
 
-        score_board.setText("Score: " +score);
-
+        score_board.setText(getString(R.string.score, score));
 
     }
 
+    public void hitCheck() {
+     /*   String printKevin = "Kevin Y " + kevin_Y;
+        System.out.println(printKevin);
+        System.out.println();
+        String printWiener = "Wiener Y " + wiener_Y;
+        System.out.println();
+        System.out.println(printWiener);
 
+      */
+        // if wiener hits mouth
+        if (wiener_X >= 20 && wiener_X <= 70){
+
+/**
+ * Set range of values in which wiener Y can be between +/- kevin_Y
+ * for range of hits
+ */
+            if(wiener_Y >= kevin_Y - 200 && wiener_Y <= kevin_Y + 100) {
+
+                score += 30;
+                wiener_X = -100;
+                sound.playHitSound();
+              /*  printKevin = "HIT: Kevin Y " + kevin_Y;
+                System.out.println(printKevin);
+                printWiener = "HIT: Wiener Y " + wiener_Y;
+                System.out.println(printWiener);
+
+               */
+
+            }
+            if (kevin_Y < 0 || kevin_Y > frameHeight) {
+                kevin_Y = 0;
+
+                timer.cancel();
+                timer = null;
+
+                // show results
+                Intent intent = new Intent(getApplicationContext(), result.class);
+                intent.putExtra("SCORE", score);
+                startActivity(intent);
+            }
+
+            score_board.setText(getString(R.string.score, score));
+
+        }
+    }
+    @Override
     public boolean onTouchEvent(MotionEvent user) {
 
         if (start == false) {
@@ -193,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                 action = false;
         }
 
-            return true;
+            return super.onTouchEvent(user);
         }
         public boolean dispatchKeyEvent(KeyEvent event){
 
@@ -204,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            return super.dispatchKeyEvent((event));
+            return super.dispatchKeyEvent(event);
         }
+
 }

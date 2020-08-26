@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kevin.wiener.game.MainActivity"
+    tools:context="kevin.wiener.game.result"
     android:orientation="vertical"
     android:gravity="center">
 
@@ -18,7 +18,7 @@
         android:id="@+id/scoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="150"
+        android:text="@string/result_score"
         android:textSize="40sp"
         android:layout_marginTop="80dp"/>
 
@@ -26,7 +26,7 @@
         android:id="@+id/highScoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="High Score : 300"
+        android:text="@string/high_score"
         android:textSize="20sp"
         android:layout_marginTop="80dp"/>
 
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Try Again"
+        android:text="@string/try_again"
         android:textAllCaps="false"
         android:onClick="tryAgain"/>
 
