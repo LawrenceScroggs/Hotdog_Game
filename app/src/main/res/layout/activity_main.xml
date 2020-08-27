@@ -39,18 +39,29 @@
             android:translationX="120dp" />
 
         <ImageView
+            android:id="@+id/back_1"
+            android:layout_width="1688dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/back_1"
+            app:srcCompat="@drawable/back_1" />
+
+        <ImageView
             android:id="@+id/kevin"
             android:layout_width="74dp"
             android:layout_height="75dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/head"
+            android:cropToPadding="false"
             android:visibility="visible"
-            app:srcCompat="@drawable/kevin_open" />
+            app:srcCompat="@drawable/kevin_open2"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/wiener"
             android:layout_width="100dp"
             android:layout_height="20dp"
-            app:srcCompat="@drawable/weiner"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/wiener"
             android:contentDescription="@string/wiener" />
 
 

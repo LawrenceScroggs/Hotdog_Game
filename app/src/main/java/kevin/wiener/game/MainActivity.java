@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     // images used within the game
     private ImageView kevin;
     private ImageView wiener;
+    private ImageView back_1;
 
 
     //Size of frame & kevin
