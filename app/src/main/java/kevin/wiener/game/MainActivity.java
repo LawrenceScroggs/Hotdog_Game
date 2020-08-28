@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
     private int wiener_Y;
     private int wiener_X;
 
+    // Background for parallax
+    private int back_X1;
+    private int back_X2;
+
     // SCOREBOARD
     private int score;
 
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     // Status of Kevin & Wiener
     private boolean action = false;
     private boolean start = false;
+    private boolean end = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,18 +86,34 @@ public class MainActivity extends AppCompatActivity {
         score_board = findViewById(R.id.score_board);
         to_start = findViewById(R.id.to_start);
         kevin = findViewById(R.id.kevin);
+        wiener = findViewById(R.id.wiener);
+        back_1 = findViewById(R.id.back_1);
+
+       // initial position
         kevin.setX(40);
         kevin.setY(100);
-        wiener = findViewById(R.id.wiener);
 
         // moves off screen
         wiener.setX(-80);
         wiener.setY(-80);
 
+        back_1.setX(0);
+        back_X1 = 0;
+
+
         //score_board.setText("Score: " + score);
         score_board.setText(getString(R.string.score, score));
     }
 
+    public void parallax(boolean end){
+
+        while(end == false){
+            back_X1 += 30;
+            back_1.setX(back_X1);
+            if(back_X1 >= 1688) back_X1 = screen_width;
+        }
+
+    }
     public void changePos() {
 
         hitCheck();
@@ -131,8 +152,10 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(printWiener);
 
       */
+
+     parallax(end);
         // if wiener hits mouth
-        if (wiener_X >= 20 && wiener_X <= 70){
+        if (wiener_X >= 20 && wiener_X <= 50){
 
 /**
  * Set range of values in which wiener Y can be between +/- kevin_Y
@@ -151,22 +174,25 @@ public class MainActivity extends AppCompatActivity {
                */
 
             }
-            if (kevin_Y < 0 || kevin_Y > frameHeight) {
-                kevin_Y = 0;
 
-                timer.cancel();
-                timer = null;
+                if (kevin_Y < 100 || kevin_Y > frameHeight - 100) {
+                    end = true;
+                    parallax(true);
 
-                // show results
-                Intent intent = new Intent(getApplicationContext(), result.class);
-                intent.putExtra("SCORE", score);
-                startActivity(intent);
+                    kevin_Y = 0;
+
+                    timer.cancel();
+                    timer = null;
+
+                    // show results
+                    Intent intent = new Intent(getApplicationContext(), result.class);
+                    intent.putExtra("SCORE", score);
+                    startActivity(intent);
+                }
             }
 
             score_board.setText(getString(R.string.score, score));
-
-        }
-    }
+     }
     @Override
     public boolean onTouchEvent(MotionEvent user) {
 
