@@ -101,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
         bg1.setX(0);
         back_X1 = 0;
+        bg2.setX(0);
+        back_X2 = -874;
 
 
         //score_board.setText("Score: " + score);
@@ -111,8 +113,14 @@ public class MainActivity extends AppCompatActivity {
 
         while(end == false){
             back_X1 += 30;
+            back_X2 += 30;
             bg1.setX(back_X1);
-            if(back_X1 >= 1688) back_X1 = screen_width;
+            if(back_X1 >= 873){
+                back_X1 = -874;
+            }
+            else if(back_X2 >= 873){
+                back_X2 = -874;
+            }
         }
 
     }
