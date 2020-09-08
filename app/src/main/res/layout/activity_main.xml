@@ -24,13 +24,6 @@
         android:layout_height="match_parent">
 
 
-        <ScrollViewView
-            android:id="@+id/back_1"
-            android:layout_width="1688dp"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/back_1"
-            android:isScrollContainer="true"
-            app:srcCompat="@drawable/back_1" />
 
         <TextView
             android:id="@+id/to_start"
@@ -46,6 +39,19 @@
             android:textSize="30sp"
             android:translationX="120dp" />
 
+        // Pics used within game
+        <ImageView
+            android:id="@+id/bg1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/bg1"
+            app:srcCompat="@drawable/bg1"/>
+        <ImageView
+            android:id="@+id/bg2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/bg2"
+            app:srcCompat="@drawable/bg2"/>
         <ImageView
             android:id="@+id/kevin"
             android:layout_width="74dp"

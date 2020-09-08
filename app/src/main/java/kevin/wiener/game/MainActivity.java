@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     // images used within the game
     private ImageView kevin;
     private ImageView wiener;
-    private ImageView back_1;
+    private ImageView bg1;
+    private ImageView bg2;
 
 
     //Size of frame & kevin
@@ -87,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
         to_start = findViewById(R.id.to_start);
         kevin = findViewById(R.id.kevin);
         wiener = findViewById(R.id.wiener);
-        back_1 = findViewById(R.id.back_1);
+        bg1 = findViewById(R.id.bg1);
+        bg2 = findViewById(R.id.bg2);
 
        // initial position
         kevin.setX(40);
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         wiener.setX(-80);
         wiener.setY(-80);
 
-        back_1.setX(0);
+        bg1.setX(0);
         back_X1 = 0;
 
 
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
         while(end == false){
             back_X1 += 30;
-            back_1.setX(back_X1);
+            bg1.setX(back_X1);
             if(back_X1 >= 1688) back_X1 = screen_width;
         }
 

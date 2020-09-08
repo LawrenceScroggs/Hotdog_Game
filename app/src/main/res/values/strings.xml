@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Kevins_Wieners</string>
+    <string name="bg1">bg1</string>
+    <string name="bg2">bg2</string>
     <string name="back_1">back_1</string>
     <string name="wiener">wiener</string>
     <string name="head">head</string>
