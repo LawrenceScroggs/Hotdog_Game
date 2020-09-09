@@ -101,9 +101,9 @@ public class MainActivity extends AppCompatActivity {
 
         bg1.setX(0);
         back_X1 = 0;
-        bg2.setX(0);
-        back_X2 = -874;
+        back_X2 = screen_width-874;
 
+        bg2.setX(back_X2);
 
         //score_board.setText("Score: " + score);
         score_board.setText(getString(R.string.score, score));
@@ -111,22 +111,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void parallax(boolean end){
 
-        while(end == false){
-            back_X1 += 30;
-            back_X2 += 30;
+        if(end == false){
+            back_X1 -= 30;
+            back_X2 -= 30;
             bg1.setX(back_X1);
-            if(back_X1 >= 873){
-                back_X1 = -874;
+            bg2.setX(back_X2);
+            if(back_X1 <= 873 - screen_width){
+                back_X1 = 0;
+                bg1.setX(back_X1);
             }
-            else if(back_X2 >= 873){
-                back_X2 = -874;
+            else if(back_X2 <= 873 - screen_width){
+                back_X2 = 0;
+                bg2.setX(back_X2);
             }
         }
+        else
+            return;
 
     }
     public void changePos() {
 
         hitCheck();
+        parallax(end);
 
         wiener_X -= wiener_spd;
 
@@ -163,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
 
       */
 
-     parallax(end);
         // if wiener hits mouth
         if (wiener_X >= 20 && wiener_X <= 50){
 
@@ -186,8 +191,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
                 if (kevin_Y < 100 || kevin_Y > frameHeight - 100) {
-                    end = true;
-                    parallax(true);
+
+                    parallax(false);
 
                     kevin_Y = 0;
 

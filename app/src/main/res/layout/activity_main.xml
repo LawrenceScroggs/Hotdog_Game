@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:visibility="visible"
-    tools:context="kevin.wiener.game.MainActivity">
+    tools:context="kevin.wiener.game.MainActivity"
+    tools:visibility="visible">
 
     <TextView
         android:id="@+id/score_board"
@@ -24,20 +25,6 @@
         android:layout_height="match_parent">
 
 
-
-        <TextView
-            android:id="@+id/to_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
-            android:contentDescription="@string/start"
-            android:text="@string/start"
-            android:textSize="30sp"
-            android:translationX="120dp" />
 
 
         <ImageView
@@ -72,8 +59,25 @@
             android:layout_width="100dp"
             android:layout_height="20dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/wiener"
-            android:contentDescription="@string/wiener" />
+            android:contentDescription="@string/wiener"
+            app:srcCompat="@drawable/wiener" />
+        <TextView
+            android:id="@+id/to_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:contentDescription="@string/start"
+            android:text="@string/start"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#E91E63"
+            android:textSize="36sp"
+            android:translationX="120dp"
+            android:visibility="visible"
+            app:fontFamily="casual" />
 
 
     </FrameLayout>
