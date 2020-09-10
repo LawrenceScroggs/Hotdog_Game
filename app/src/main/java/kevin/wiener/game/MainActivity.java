@@ -99,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
         wiener.setX(-80);
         wiener.setY(-80);
 
-        bg1.setX(0);
         back_X1 = 0;
-        back_X2 = screen_width-874;
+        bg1.setX(0);
+        back_X2 = (874 + screen_width);
 
         bg2.setX(back_X2);
 
@@ -112,21 +112,29 @@ public class MainActivity extends AppCompatActivity {
     public void parallax(boolean end){
 
         if(end == false){
-            back_X1 -= 30;
-            back_X2 -= 30;
+            back_X1 -= 20;
+            back_X2 -= 20;
+            String screen = "Screen W: " + screen_width;
+            System.out.println(screen);
+            String bg_1 = "bg1: " + back_X1;
+            System.out.println(bg_1);
+            String bg_2 = "bg2: " + back_X2;
+            System.out.println(bg_2);
+            System.out.println();
+
             bg1.setX(back_X1);
             bg2.setX(back_X2);
-            if(back_X1 <= 873 - screen_width){
-                back_X1 = 0;
+
+            if(back_X1 <= (-873 - screen_width)){
+                back_X1 = 874 + screen_width;
                 bg1.setX(back_X1);
             }
-            else if(back_X2 <= 873 - screen_width){
-                back_X2 = 0;
+            if(back_X2 <= (-873 - screen_width)){
+                back_X2 = 874 + screen_width;
                 bg2.setX(back_X2);
             }
         }
-        else
-            return;
+        return;
 
     }
     public void changePos() {
