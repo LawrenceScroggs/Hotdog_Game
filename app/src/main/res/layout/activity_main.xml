@@ -25,11 +25,9 @@
         android:layout_height="match_parent">
 
 
-
-
         <ImageView
             android:id="@+id/bg1"
-            android:layout_width="870dp"
+            android:layout_width="1266dp"
             android:layout_height="684dp"
             android:contentDescription="@string/bg1"
             android:visibility="visible"
@@ -37,7 +35,7 @@
 
         <ImageView
             android:id="@+id/bg2"
-            android:layout_width="873dp"
+            android:layout_width="1266dp"
             android:layout_height="684dp"
             android:contentDescription="@string/bg2"
             android:visibility="visible"
@@ -61,6 +59,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/wiener"
             app:srcCompat="@drawable/wiener" />
+
         <TextView
             android:id="@+id/to_start"
             android:layout_width="wrap_content"
@@ -74,10 +73,10 @@
             android:text="@string/start"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#E91E63"
-            android:textSize="36sp"
-            android:translationX="120dp"
+            android:textSize="44sp"
+            android:translationX="40dp"
             android:visibility="visible"
-            app:fontFamily="casual" />
+            app:fontFamily="monospace" />
 
 
     </FrameLayout>
