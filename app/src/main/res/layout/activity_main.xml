@@ -27,7 +27,7 @@
 
         <ImageView
             android:id="@+id/bg1"
-            android:layout_width="1266dp"
+            android:layout_width="1215dp"
             android:layout_height="684dp"
             android:contentDescription="@string/bg1"
             android:visibility="visible"
@@ -35,7 +35,7 @@
 
         <ImageView
             android:id="@+id/bg2"
-            android:layout_width="1266dp"
+            android:layout_width="1215dp"
             android:layout_height="684dp"
             android:contentDescription="@string/bg2"
             android:visibility="visible"
