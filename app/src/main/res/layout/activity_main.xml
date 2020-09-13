@@ -72,7 +72,7 @@
             android:contentDescription="@string/start"
             android:text="@string/start"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#E91E63"
+            android:textColor="#F4F8F8"
             android:textSize="44sp"
             android:translationX="40dp"
             android:visibility="visible"

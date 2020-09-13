@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     //private int kevin_size;
     private int screen_width;
     private int screen_height;
+    private int img;
 
     // Speed of Kevin & Wieners
     private int kevin_spd;
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
         bg1 = findViewById(R.id.bg1);
         bg2 = findViewById(R.id.bg2);
 
+        img = bg1.getWidth();
+
        // initial position
         kevin.setX(40);
         kevin.setY(100);
@@ -100,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
         wiener.setY(-80);
 
         back_X1 = 0;
-        bg1.setX(0);
-        back_X2 = (1215 + screen_width);
+        bg1.setX(back_X1);
 
+        back_X2 = 3018;
         bg2.setX(back_X2);
 
         //score_board.setText("Score: " + score);
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         if(end == false){
             back_X1 -= 20;
             back_X2 -= 20;
-            String screen = "Screen W: " + screen_width;
+            String screen = "Screen W: " + screen_width + " img: " + img;
             System.out.println(screen);
             String bg_1 = "bg1: " + back_X1;
             System.out.println(bg_1);
@@ -125,16 +128,16 @@ public class MainActivity extends AppCompatActivity {
             bg1.setX(back_X1);
             bg2.setX(back_X2);
 
-            if(back_X1 <= (-1215 - screen_width)){
-                back_X1 = 1216 + screen_width;
-                bg1.setX(back_X1);
-                String R1 = "b1 reset";
+            if(back_X1 <= (-3000)){
+                back_X1 = bg1.getWidth();
+                bg1.setX(back_X1 - 1);
+                String R1 = "b1 reset" + back_X1;
                 System.out.println(R1);
             }
-            if(back_X2 <= (-1215 - screen_width)){
-                back_X2 = 1216 + screen_width;
-                bg2.setX(back_X2);
-                String R2 = "b2 reset";
+            if(back_X2 <= (-3000)){
+                back_X2 = bg2.getWidth();
+                bg2.setX(back_X2 - 1);
+                String R2 = "b2 reset" + back_X2;
                 System.out.println(R2);
             }
         }
@@ -189,7 +192,6 @@ public class MainActivity extends AppCompatActivity {
  * for range of hits
  */
             if(wiener_Y >= kevin_Y - 200 && wiener_Y <= kevin_Y + 100) {
-
                 score += 30;
                 wiener_X = -100;
                 sound.playHitSound();
