@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         if(end == false){
             back_X1 -= 20;
             back_X2 -= 20;
+            img = bg1.getWidth();
             String screen = "Screen W: " + screen_width + " img: " + img;
             System.out.println(screen);
             String bg_1 = "bg1: " + back_X1;
@@ -128,13 +129,13 @@ public class MainActivity extends AppCompatActivity {
             bg1.setX(back_X1);
             bg2.setX(back_X2);
 
-            if(back_X1 <= (-3000)){
+            if(back_X1 <= -(img - 38)){
                 back_X1 = bg1.getWidth();
                 bg1.setX(back_X1 - 1);
                 String R1 = "b1 reset" + back_X1;
                 System.out.println(R1);
             }
-            if(back_X2 <= (-3000)){
+            if(back_X2 <= -(img - 38)){
                 back_X2 = bg2.getWidth();
                 bg2.setX(back_X2 - 1);
                 String R2 = "b2 reset" + back_X2;
