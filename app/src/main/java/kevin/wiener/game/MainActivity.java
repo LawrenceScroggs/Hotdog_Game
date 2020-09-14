@@ -68,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.SplashTheme);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_start);
         setContentView(R.layout.activity_main);
 
         sound = new SoundPlayer(this);
