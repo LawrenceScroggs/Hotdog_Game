@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         bg2 = findViewById(R.id.bg2);
 
         img = bg1.getWidth();
+        kevin_Y = 100;
 
        // initial position
         kevin.setX(40);
@@ -176,14 +177,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hitCheck() {
-     /*   String printKevin = "Kevin Y " + kevin_Y;
+        String printKevin = "Kevin Y " + kevin_Y;
         System.out.println(printKevin);
         System.out.println();
+        /*
         String printWiener = "Wiener Y " + wiener_Y;
         System.out.println();
         System.out.println(printWiener);
 
       */
+        if (kevin_Y < 10 || kevin_Y > frameHeight - 400) {
+
+            parallax(false);
+
+            kevin_Y = 200;
+
+            timer.cancel();
+            timer = null;
+
+            // show results
+            Intent intent = new Intent(getApplicationContext(), result.class);
+            intent.putExtra("SCORE", score);
+            startActivity(intent);
+        }
 
         // if wiener hits mouth
         if (wiener_X >= 20 && wiener_X <= 50){
@@ -192,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
  * Set range of values in which wiener Y can be between +/- kevin_Y
  * for range of hits
  */
-            if(wiener_Y >= kevin_Y - 200 && wiener_Y <= kevin_Y + 100) {
+            if(wiener_Y >= kevin_Y - 200 && wiener_Y <= kevin_Y + 50) {
                 score += 30;
                 wiener_X = -100;
                 sound.playHitSound();
@@ -205,20 +221,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-                if (kevin_Y < 100 || kevin_Y > frameHeight - 100) {
-
-                    parallax(false);
-
-                    kevin_Y = 0;
-
-                    timer.cancel();
-                    timer = null;
-
-                    // show results
-                    Intent intent = new Intent(getApplicationContext(), result.class);
-                    intent.putExtra("SCORE", score);
-                    startActivity(intent);
-                }
             }
 
             score_board.setText(getString(R.string.score, score));
@@ -233,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
             frameHeight = frame.getHeight();
 
             kevin.setY(80);
-            kevin.setX(40);
+            kevin.setX(150);
 
             to_start.setVisibility(View.GONE);
 
