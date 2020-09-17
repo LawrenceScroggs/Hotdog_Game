@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:visibility="visible"
-    tools:context="kevin.wiener.game.MainActivity"
+    tools:context=".MainActivity"
     tools:visibility="visible">
 
     <TextView
